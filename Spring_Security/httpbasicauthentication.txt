@@ -1,0 +1,15 @@
+@Configuration
+public class SpringSecurityConfig{
+	@Bean
+	public PasswordEncoder passwordEncoder(){
+		return new BCryptPasswordEncoder();}
+
+	@Bean
+	public SecurityFilterChain securityfilterchain(HttpSecurity security) throws Exception
+		return security.csrf(csrf->csrf.disable())
+			.authorizeHttpRequest(authorize.anyRequest().authenticated())
+			.httpBasic(Customizer.withDefaults())
+			.buid();
+	}
+}
+	
